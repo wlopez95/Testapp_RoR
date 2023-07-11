@@ -1,5 +1,5 @@
 <div class="container">
-    <%= render "shared/errors" %>
+    <%= render "shared/errors", obj: @article %>
     <div class="row justify-content-center">
         <%= form_with(model: @article,class: "shadow p-3 mb-3 bg-info rounded",local: true) do |form| %>
             <div class="form-group row">
@@ -17,7 +17,7 @@
             </div>
 
             <div class="form-group row justify-content-center">
-                <%= form.submit class: "btn btn-outline-light btn-light text-black" , id: "form-button" %>   
+                <%= form.submit "Sign up",class: "btn btn-outline-light btn-light text-black" , id: "form-button" %>
             </div>
         <% end %>
         <div class="d-flex justify-content-center">

@@ -1,0 +1,53 @@
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+
+#home-container {
+  margin-top: 25px;
+}
+
+.alert-dismissible {
+   padding-right: 0 !important;
+}
+
+.jumbotron {
+  background-image: asset-url('writing.jpeg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 435px;
+}
+
+.form-group {
+  padding-bottom: 20px !important;
+}
+
+#form-button{
+  max-width: 15%;
+}
+
+.close-errors-alert{
+  background-color: transparent;
+  border: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex:1 0 auto;
+  background-color: lightgray;
+}
+
+#stiky-footer {
+  flex-shrink: none;
+}
+

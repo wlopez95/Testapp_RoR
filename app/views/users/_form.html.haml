@@ -1,0 +1,24 @@
+.container
+  =render "shared/errors", obj: @user
+  .row.justify-content-center
+    = form_with(model: @user,class: "shadow p-3 mb-3 bg-info rounded",local: true) do |form|
+      .form-group.row
+        =form.label :username, class: "col-2 col-form-label"
+        .col-10
+          =form.text_field :username,class: "form-control",placeholder: "Username"
+      .form-group.row
+        =form.label :email, class: "col-2 col-form-label"
+        .col-10
+          =form.email_field :email,class: "form-control",placeholder: "Email"
+      .form-group.row
+        =form.label :password, class: "col-2 col-form-label"
+        .col-10
+          =form.password_field :password,class: "form-control",placeholder: "Password"
+      .form-group.row.justify-content-center
+        = form.submit class: "btn btn-outline-light btn-light text-black" , id: "form-button"
+  .d-flex.justify-content-center
+    = link_to "[Cancel and return to Home page]", root_path(), class:"text-info"
+
+
+
+

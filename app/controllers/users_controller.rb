@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
     def index
-        @users = User.all
+        @users = User.paginate(page: params[:page], per_page: 5)
     end
     def show
         @user = User.find(params[:id])
-        @articles = @user.articles
+        @articles = @user.articles.paginate(page: params[:page], per_page: 2)
     end
     def new
         @user = User.new
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     def create
         @user  = User.new(user_params)
         if @user.save
-            redirect_to  root_path(), notice: "User #{@user.username} was created successfully"
+            redirect_to  user_path(@user), notice: "User #{@user.username} was created successfully"
         else
             render :new, status: :unprocessable_entity
         end

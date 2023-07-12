@@ -1,3 +1,4 @@
+#The helper methods are just available in the views , NOT in the controllers, to add a method with access from controllers created in application_controller
 module ApplicationHelper
   def gravatar_for(user,options = {size: 80})
     email_address = user.email.downcase

@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
     before_action :set_article,only: [:show, :edit, :update, :destroy]
 
     def index
-        @articles = Article.all
+        @articles = Article.paginate(page: params[:page], per_page: 5)
     end
 
     def show 
@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
     #Ejecuta la llamara rest para crear un articulo
     def create
         @article  = Article.new(article_params)
-        @article.user = User.first
+        @article.user = current_user
         if @article.save
             redirect_to  @article, notice: "Article was created successfully"
         else

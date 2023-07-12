@@ -1,6 +1,11 @@
-#page-content
-  %h1.text-center.mt-4 Alpha Bloggers
-  .container
+.container
+  .row.mt-4.d-flex.justify-content-center
+    .col-7
+      %h1 Listing all the Bloggers
+    .col-3.d-flex.align-items-center.justify-content-end
+      = link_to "New Blogger", signup_path(),class: "btn btn-info"
     -@users.each do |user|
       = render partial: 'user' ,locals: {user: user}
+    = render partial: 'shared/pagination', locals: { obj: @users}
+
 

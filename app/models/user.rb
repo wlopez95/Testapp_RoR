@@ -9,5 +9,7 @@ class User < ApplicationRecord
                       uniqueness: {case_sensitive: false},
                       length: {maximum:105},
                       format:{with: VALIT_EMAIL_EXP}
+    validates :email, presence: true,
+              length: {minimum:8}
     has_secure_password
 end

@@ -1,0 +1,9 @@
+.page-content
+  %h1.text-center.mt-4 #{@user.username}'s profile
+  .container
+    =gravatar_for @user,size: 200
+    %h3.text-center.mt-4 Articles
+    - @articles.each do |article|
+      =render partial: 'articles/article', locals: { article: article }
+
+

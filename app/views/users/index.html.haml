@@ -1,0 +1,6 @@
+#page-content
+  %h1.text-center.mt-4 Alpha Bloggers
+  .container
+    -@users.each do |user|
+      = render partial: 'user' ,locals: {user: user}
+

@@ -3,7 +3,7 @@
     .col-7
       %h1 Listing all the Articles
     .col-3.d-flex.align-items-center.justify-content-end
-      = link_to "New article", new_article_path(),class: "btn btn-info"
+      = link_to "New article", new_article_path(),class: "btn btn-info" if logged_in?
   -@articles.each do |article|
     = render partial: 'article', locals: { article: article }
   = render partial: 'shared/pagination', locals: { obj: @articles}

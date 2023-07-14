@@ -7,7 +7,8 @@
         =gravatar_for user,size: 200
         %p.card-text.mt-3 #{pluralize(user.articles.count,"article")}
         = link_to "View profile" ,user_path(user),class:"btn btn-outline-success"
-        = link_to "Edit profile" ,edit_user_path(user),class:"btn btn-outline-info"
+        -if logged_in? && user_have_access?(user)
+          = link_to "Edit profile" ,edit_user_path(user),class:"btn btn-outline-info"
       .card-footer.text-muted
         %small Joined #{time_ago_in_words(user.created_at)} ago
 

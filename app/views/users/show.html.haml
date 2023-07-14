@@ -2,7 +2,15 @@
   %h1.text-center.mt-4 #{@user.username}'s profile
   .container
     =gravatar_for @user,size: 200
-    %h3.text-center.mt-4 Articles
+
+    .row.mt-4.d-flex.justify-content-center
+      .col-4
+        %h2 Articles
+      .col-2.d-flex.align-items-center.justify-content-end
+        = link_to "New article", new_article_path(),class: "btn btn-info" if logged_in? && user_have_access?(@user)
+      .col-2.d-flex.align-items-center.justify-content-end
+        = link_to "Delete blogger", user_path(@user),class: "btn btn-danger",data:{turbo_method: :delete, turbo_confirm: "Are you sure?"} if logged_in? && user_have_access?(@user)
+
     - @articles.each do |article|
       =render partial: 'articles/article', locals: { article: article }
     = render partial: 'shared/pagination', locals: { obj: @articles}

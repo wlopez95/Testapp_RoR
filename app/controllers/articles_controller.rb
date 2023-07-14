@@ -1,8 +1,9 @@
 class ArticlesController < ApplicationController
-    before_action :set_article,only: [:show, :edit, :update, :destroy]
-
+    before_action :set_article,only: [:show, :edit, :update, :destroy] #Allows to execute methods, when any of the [only] methods runs, the first step is execute set_article
+    before_action :require_user, except: [:show,:index]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
     def index
-        @articles = Article.paginate(page: params[:page], per_page: 5)
+        @articles = Article.paginate(page: params[:page], per_page: 5) #<>.paginate permit the use of pagination in the view, check the view shared/_pagination
     end
 
     def show 
@@ -44,7 +45,7 @@ class ArticlesController < ApplicationController
     end
 
 
-    private
+    private #this methods before this tag, just can be executed inside this same controller
 
     def set_article
         @article = Article.find(params[:id]) 

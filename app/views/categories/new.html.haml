@@ -1,0 +1,16 @@
+#page-content
+  %h1.text-center.mt-4 Create a new category
+  .container
+    =render "shared/errors", obj: @category
+    .row.justify-content-center
+      = form_with(model: @category,class: "shadow p-3 mb-3 bg-info rounded",local: true) do |form|
+        .form-group.row
+          =form.label :name,"Category name", class: "col-2 col-form-label"
+          .col-10
+            =form.text_field :name,class: "form-control",placeholder: "Enter category name"
+        .form-group.row.justify-content-center
+          = form.submit class: "btn btn-outline-light btn-light text-black" , id: "form-button"
+    .d-flex.justify-content-center
+      = link_to "[Cancel and return to categories list]", categories_url(), class:"text-info"
+
+

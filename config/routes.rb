@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'login', to: 'sessions#destroy' #route to delete an item, in the link_to is necessary to include this code: data:{turbo_method: :delete}
+  resources :categories, only: [:show,:index, :new,:create]
 
 end
